@@ -1,0 +1,99 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/simulation/modelsim
+valtera_edge_detector
+Z1 !s110 1580491657
+!i10b 1
+!s100 iLnL;nlB1YWG4McBD;;ch1
+IFBQKN9Gzba<JlfQWN=6cK1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1479158384
+8C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/edge_detect/altera_edge_detector.v
+FC:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/edge_detect/altera_edge_detector.v
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1580491657.000000
+!s107 C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/edge_detect/altera_edge_detector.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/edge_detect|C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/edge_detect/altera_edge_detector.v|
+!i113 1
+Z6 o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/edge_detect
+Z7 tCvgOpt 0
+vdebounce
+R1
+!i10b 1
+!s100 aCj00@NnbMbH]a;K>4i?K0
+IgYmbMkLmQI:MW^RcD<Q>^0
+R2
+R0
+R3
+8C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/debounce/debounce.v
+FC:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/debounce/debounce.v
+L0 13
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/debounce/debounce.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/debounce|C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/debounce/debounce.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/debounce
+R7
+vhps_reset
+R1
+!i10b 1
+!s100 :;feJJ6k5zoaHKfaK^TCf0
+II@CJN9I>MXM9fEc;;X0mS2
+R2
+R0
+w1580316980
+8C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/altsource_probe/hps_reset.v
+FC:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/altsource_probe/hps_reset.v
+L0 39
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/altsource_probe/hps_reset.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/altsource_probe|C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/altsource_probe/hps_reset.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/altsource_probe
+R7
+vIGBT_Pulse_Controller
+R1
+!i10b 1
+!s100 7`k:;9fD5a`YYMGTYenZM0
+IoXmzl8]kXQ=Iik;F<MWAA0
+R2
+R0
+w1580340210
+8C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/IGBT_Pulse_Controller/IGBT_Pulse_Controller.v
+FC:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/IGBT_Pulse_Controller/IGBT_Pulse_Controller.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/IGBT_Pulse_Controller/IGBT_Pulse_Controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/IGBT_Pulse_Controller|C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/IGBT_Pulse_Controller/IGBT_Pulse_Controller.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+C:/Users/chenc/Google_Drive/Weinberg/FPGA/IGBT_DE10_Nano_Quartus_v1.0/ip/IGBT_Pulse_Controller
+R7
+n@i@g@b@t_@pulse_@controller

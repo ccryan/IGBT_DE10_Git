@@ -1,0 +1,919 @@
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_0_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:mm_bridge_0_s0_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_f2sdram_only_master:fpga_only_master|altera_avalon_packets_to_master:transacto|packets_to_master:p2m|state
+Name state.READ_SEND_WAIT state.READ_SEND_ISSUE state.READ_DATA_WAIT state.READ_CMD_WAIT state.READ_ASSERT state.RETURN_PACKET state.WRITE_WAIT state.GET_WRITE_DATA state.GET_ADDR4 state.GET_ADDR3 state.GET_ADDR2 state.GET_ADDR1 state.GET_SIZE2 state.GET_SIZE1 state.GET_EXTRA state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.GET_EXTRA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.GET_SIZE1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.GET_SIZE2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.GET_ADDR1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.GET_ADDR2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.GET_ADDR3 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.GET_ADDR4 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.GET_WRITE_DATA 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.WRITE_WAIT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.RETURN_PACKET 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.READ_ASSERT 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_CMD_WAIT 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_DATA_WAIT 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_ISSUE 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_WAIT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext|altera_avalon_i2c_condt_gen:u_condt_gen|start_state
+Name start_state.START_DONE start_state.START_HOLD start_state.START_LOAD start_state.START_IDLE 
+start_state.START_IDLE 0 0 0 0 
+start_state.START_LOAD 0 0 1 1 
+start_state.START_HOLD 0 1 0 1 
+start_state.START_DONE 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext|altera_avalon_i2c_condt_gen:u_condt_gen|restart_state
+Name restart_state.RESTART_DONE restart_state.RESTART_HOLD restart_state.RESTART_SETUP restart_state.RESTART_SCL_LOW restart_state.RESTART_LOAD restart_state.RESTART_IDLE 
+restart_state.RESTART_IDLE 0 0 0 0 0 0 
+restart_state.RESTART_LOAD 0 0 0 0 1 1 
+restart_state.RESTART_SCL_LOW 0 0 0 1 0 1 
+restart_state.RESTART_SETUP 0 0 1 0 0 1 
+restart_state.RESTART_HOLD 0 1 0 0 0 1 
+restart_state.RESTART_DONE 1 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext|altera_avalon_i2c_condt_gen:u_condt_gen|stop_state
+Name stop_state.STOP_SETUP stop_state.STOP_SCL_LOW stop_state.STOP_LOAD stop_state.STOP_IDLE stop_state.STOP_DONE 
+stop_state.STOP_IDLE 0 0 0 0 0 
+stop_state.STOP_LOAD 0 0 1 1 0 
+stop_state.STOP_SCL_LOW 0 1 0 1 0 
+stop_state.STOP_SETUP 1 0 0 1 0 
+stop_state.STOP_DONE 0 0 0 1 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext|altera_avalon_i2c_condt_det:u_condt_det|bus_state
+Name bus_state.BUS_COUNTING bus_state.BUS_LOAD_CNT bus_state.BUS_BUSY bus_state.BUS_IDLE 
+bus_state.BUS_IDLE 0 0 0 0 
+bus_state.BUS_BUSY 0 0 1 1 
+bus_state.BUS_LOAD_CNT 0 1 0 1 
+bus_state.BUS_COUNTING 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext|altera_avalon_i2c_txshifter:u_txshifter|tx_shiftfsm_state
+Name tx_shiftfsm_state.TX_DONE tx_shiftfsm_state.TX_CLK_HOLD tx_shiftfsm_state.TX_CLK_HIGH tx_shiftfsm_state.TX_CLK_LOW tx_shiftfsm_state.TX_CLK_LOAD tx_shiftfsm_state.TX_IDLE 
+tx_shiftfsm_state.TX_IDLE 0 0 0 0 0 0 
+tx_shiftfsm_state.TX_CLK_LOAD 0 0 0 0 1 1 
+tx_shiftfsm_state.TX_CLK_LOW 0 0 0 1 0 1 
+tx_shiftfsm_state.TX_CLK_HIGH 0 0 1 0 0 1 
+tx_shiftfsm_state.TX_CLK_HOLD 0 1 0 0 0 1 
+tx_shiftfsm_state.TX_DONE 1 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext|altera_avalon_i2c_rxshifter:u_rxshifter|rx_shiftfsm_state
+Name rx_shiftfsm_state.RX_DONE rx_shiftfsm_state.RX_HOLD rx_shiftfsm_state.RX_CLK_HIGH rx_shiftfsm_state.RX_CLK_LOW rx_shiftfsm_state.RX_CLK_LOAD rx_shiftfsm_state.IDLE 
+rx_shiftfsm_state.IDLE 0 0 0 0 0 0 
+rx_shiftfsm_state.RX_CLK_LOAD 0 0 0 0 1 1 
+rx_shiftfsm_state.RX_CLK_LOW 0 0 0 1 0 1 
+rx_shiftfsm_state.RX_CLK_HIGH 0 0 1 0 0 1 
+rx_shiftfsm_state.RX_HOLD 0 1 0 0 0 1 
+rx_shiftfsm_state.RX_DONE 1 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext|altera_avalon_i2c_mstfsm:u_mstfsm|mst_fsm_state
+Name mst_fsm_state.PRE_IDLE mst_fsm_state.GEN_STOP mst_fsm_state.BUS_HOLD mst_fsm_state.GEN_RESTART_7BIT mst_fsm_state.GEN_7BIT_ADDR mst_fsm_state.RX_BYTE mst_fsm_state.TX_BYTE mst_fsm_state.POP_TX_FIFO mst_fsm_state.GEN_START mst_fsm_state.PRE_START mst_fsm_state.IDLE 
+mst_fsm_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 
+mst_fsm_state.PRE_START 0 0 0 0 0 0 0 0 0 1 1 
+mst_fsm_state.GEN_START 0 0 0 0 0 0 0 0 1 0 1 
+mst_fsm_state.POP_TX_FIFO 0 0 0 0 0 0 0 1 0 0 1 
+mst_fsm_state.TX_BYTE 0 0 0 0 0 0 1 0 0 0 1 
+mst_fsm_state.RX_BYTE 0 0 0 0 0 1 0 0 0 0 1 
+mst_fsm_state.GEN_7BIT_ADDR 0 0 0 0 1 0 0 0 0 0 1 
+mst_fsm_state.GEN_RESTART_7BIT 0 0 0 1 0 0 0 0 0 0 1 
+mst_fsm_state.BUS_HOLD 0 0 1 0 0 0 0 0 0 0 1 
+mst_fsm_state.GEN_STOP 0 1 0 0 0 0 0 0 0 0 1 
+mst_fsm_state.PRE_IDLE 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|interrupt_latency_counter:ilc|state_machine_counter:state_machine[2].state_machine_counter|state
+Name state.STORE state.STOP state.START state.IDLE 
+state.IDLE 0 0 0 0 
+state.START 0 0 1 1 
+state.STOP 0 1 0 1 
+state.STORE 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|interrupt_latency_counter:ilc|state_machine_counter:state_machine[1].state_machine_counter|state
+Name state.STORE state.STOP state.START state.IDLE 
+state.IDLE 0 0 0 0 
+state.START 0 0 1 1 
+state.STOP 0 1 0 1 
+state.STORE 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|interrupt_latency_counter:ilc|state_machine_counter:state_machine[0].state_machine_counter|state
+Name state.STORE state.STOP state.START state.IDLE 
+state.IDLE 0 0 0 0 
+state.START 0 0 1 1 
+state.STOP 0 1 0 1 
+state.STORE 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_35_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_34_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_33_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_32_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_13_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[32].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|altera_edge_detector:pulse_debug_reset|state
+Name state.IDLE state.CAPT state.ARM 
+state.IDLE 0 0 0 
+state.ARM 1 0 1 
+state.CAPT 1 1 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|altera_edge_detector:pulse_warm_reset|state
+Name state.IDLE state.CAPT state.ARM 
+state.IDLE 0 0 0 
+state.ARM 1 0 1 
+state.CAPT 1 1 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|altera_edge_detector:pulse_cold_reset|state
+Name state.IDLE state.CAPT state.ARM 
+state.IDLE 0 0 0 
+state.ARM 1 0 1 
+state.CAPT 1 1 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_int|altera_avalon_i2c_condt_gen:u_condt_gen|start_state
+Name start_state.START_DONE start_state.START_HOLD start_state.START_LOAD start_state.START_IDLE 
+start_state.START_IDLE 0 0 0 0 
+start_state.START_LOAD 0 0 1 1 
+start_state.START_HOLD 0 1 0 1 
+start_state.START_DONE 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_int|altera_avalon_i2c_condt_gen:u_condt_gen|restart_state
+Name restart_state.RESTART_DONE restart_state.RESTART_HOLD restart_state.RESTART_SETUP restart_state.RESTART_SCL_LOW restart_state.RESTART_LOAD restart_state.RESTART_IDLE 
+restart_state.RESTART_IDLE 0 0 0 0 0 0 
+restart_state.RESTART_LOAD 0 0 0 0 1 1 
+restart_state.RESTART_SCL_LOW 0 0 0 1 0 1 
+restart_state.RESTART_SETUP 0 0 1 0 0 1 
+restart_state.RESTART_HOLD 0 1 0 0 0 1 
+restart_state.RESTART_DONE 1 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_int|altera_avalon_i2c_condt_gen:u_condt_gen|stop_state
+Name stop_state.STOP_SETUP stop_state.STOP_SCL_LOW stop_state.STOP_LOAD stop_state.STOP_IDLE stop_state.STOP_DONE 
+stop_state.STOP_IDLE 0 0 0 0 0 
+stop_state.STOP_LOAD 0 0 1 1 0 
+stop_state.STOP_SCL_LOW 0 1 0 1 0 
+stop_state.STOP_SETUP 1 0 0 1 0 
+stop_state.STOP_DONE 0 0 0 1 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_int|altera_avalon_i2c_condt_det:u_condt_det|bus_state
+Name bus_state.BUS_COUNTING bus_state.BUS_LOAD_CNT bus_state.BUS_BUSY bus_state.BUS_IDLE 
+bus_state.BUS_IDLE 0 0 0 0 
+bus_state.BUS_BUSY 0 0 1 1 
+bus_state.BUS_LOAD_CNT 0 1 0 1 
+bus_state.BUS_COUNTING 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_int|altera_avalon_i2c_txshifter:u_txshifter|tx_shiftfsm_state
+Name tx_shiftfsm_state.TX_DONE tx_shiftfsm_state.TX_CLK_HOLD tx_shiftfsm_state.TX_CLK_HIGH tx_shiftfsm_state.TX_CLK_LOW tx_shiftfsm_state.TX_CLK_LOAD tx_shiftfsm_state.TX_IDLE 
+tx_shiftfsm_state.TX_IDLE 0 0 0 0 0 0 
+tx_shiftfsm_state.TX_CLK_LOAD 0 0 0 0 1 1 
+tx_shiftfsm_state.TX_CLK_LOW 0 0 0 1 0 1 
+tx_shiftfsm_state.TX_CLK_HIGH 0 0 1 0 0 1 
+tx_shiftfsm_state.TX_CLK_HOLD 0 1 0 0 0 1 
+tx_shiftfsm_state.TX_DONE 1 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_int|altera_avalon_i2c_rxshifter:u_rxshifter|rx_shiftfsm_state
+Name rx_shiftfsm_state.RX_DONE rx_shiftfsm_state.RX_HOLD rx_shiftfsm_state.RX_CLK_HIGH rx_shiftfsm_state.RX_CLK_LOW rx_shiftfsm_state.RX_CLK_LOAD rx_shiftfsm_state.IDLE 
+rx_shiftfsm_state.IDLE 0 0 0 0 0 0 
+rx_shiftfsm_state.RX_CLK_LOAD 0 0 0 0 1 1 
+rx_shiftfsm_state.RX_CLK_LOW 0 0 0 1 0 1 
+rx_shiftfsm_state.RX_CLK_HIGH 0 0 1 0 0 1 
+rx_shiftfsm_state.RX_HOLD 0 1 0 0 0 1 
+rx_shiftfsm_state.RX_DONE 1 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_int|altera_avalon_i2c_mstfsm:u_mstfsm|mst_fsm_state
+Name mst_fsm_state.PRE_IDLE mst_fsm_state.GEN_STOP mst_fsm_state.BUS_HOLD mst_fsm_state.GEN_RESTART_7BIT mst_fsm_state.GEN_7BIT_ADDR mst_fsm_state.RX_BYTE mst_fsm_state.TX_BYTE mst_fsm_state.POP_TX_FIFO mst_fsm_state.GEN_START mst_fsm_state.PRE_START mst_fsm_state.IDLE 
+mst_fsm_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 
+mst_fsm_state.PRE_START 0 0 0 0 0 0 0 0 0 1 1 
+mst_fsm_state.GEN_START 0 0 0 0 0 0 0 0 1 0 1 
+mst_fsm_state.POP_TX_FIFO 0 0 0 0 0 0 0 1 0 0 1 
+mst_fsm_state.TX_BYTE 0 0 0 0 0 0 1 0 0 0 1 
+mst_fsm_state.RX_BYTE 0 0 0 0 0 1 0 0 0 0 1 
+mst_fsm_state.GEN_7BIT_ADDR 0 0 0 0 1 0 0 0 0 0 1 
+mst_fsm_state.GEN_RESTART_7BIT 0 0 0 1 0 0 0 0 0 0 1 
+mst_fsm_state.BUS_HOLD 0 0 1 0 0 0 0 0 0 0 1 
+mst_fsm_state.GEN_STOP 0 1 0 0 0 0 0 0 0 0 1 
+mst_fsm_state.PRE_IDLE 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext_1|altera_avalon_i2c_condt_gen:u_condt_gen|start_state
+Name start_state.START_DONE start_state.START_HOLD start_state.START_LOAD start_state.START_IDLE 
+start_state.START_IDLE 0 0 0 0 
+start_state.START_LOAD 0 0 1 1 
+start_state.START_HOLD 0 1 0 1 
+start_state.START_DONE 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext_1|altera_avalon_i2c_condt_gen:u_condt_gen|restart_state
+Name restart_state.RESTART_DONE restart_state.RESTART_HOLD restart_state.RESTART_SETUP restart_state.RESTART_SCL_LOW restart_state.RESTART_LOAD restart_state.RESTART_IDLE 
+restart_state.RESTART_IDLE 0 0 0 0 0 0 
+restart_state.RESTART_LOAD 0 0 0 0 1 1 
+restart_state.RESTART_SCL_LOW 0 0 0 1 0 1 
+restart_state.RESTART_SETUP 0 0 1 0 0 1 
+restart_state.RESTART_HOLD 0 1 0 0 0 1 
+restart_state.RESTART_DONE 1 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext_1|altera_avalon_i2c_condt_gen:u_condt_gen|stop_state
+Name stop_state.STOP_SETUP stop_state.STOP_SCL_LOW stop_state.STOP_LOAD stop_state.STOP_IDLE stop_state.STOP_DONE 
+stop_state.STOP_IDLE 0 0 0 0 0 
+stop_state.STOP_LOAD 0 0 1 1 0 
+stop_state.STOP_SCL_LOW 0 1 0 1 0 
+stop_state.STOP_SETUP 1 0 0 1 0 
+stop_state.STOP_DONE 0 0 0 1 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext_1|altera_avalon_i2c_condt_det:u_condt_det|bus_state
+Name bus_state.BUS_COUNTING bus_state.BUS_LOAD_CNT bus_state.BUS_BUSY bus_state.BUS_IDLE 
+bus_state.BUS_IDLE 0 0 0 0 
+bus_state.BUS_BUSY 0 0 1 1 
+bus_state.BUS_LOAD_CNT 0 1 0 1 
+bus_state.BUS_COUNTING 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext_1|altera_avalon_i2c_txshifter:u_txshifter|tx_shiftfsm_state
+Name tx_shiftfsm_state.TX_DONE tx_shiftfsm_state.TX_CLK_HOLD tx_shiftfsm_state.TX_CLK_HIGH tx_shiftfsm_state.TX_CLK_LOW tx_shiftfsm_state.TX_CLK_LOAD tx_shiftfsm_state.TX_IDLE 
+tx_shiftfsm_state.TX_IDLE 0 0 0 0 0 0 
+tx_shiftfsm_state.TX_CLK_LOAD 0 0 0 0 1 1 
+tx_shiftfsm_state.TX_CLK_LOW 0 0 0 1 0 1 
+tx_shiftfsm_state.TX_CLK_HIGH 0 0 1 0 0 1 
+tx_shiftfsm_state.TX_CLK_HOLD 0 1 0 0 0 1 
+tx_shiftfsm_state.TX_DONE 1 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext_1|altera_avalon_i2c_rxshifter:u_rxshifter|rx_shiftfsm_state
+Name rx_shiftfsm_state.RX_DONE rx_shiftfsm_state.RX_HOLD rx_shiftfsm_state.RX_CLK_HIGH rx_shiftfsm_state.RX_CLK_LOW rx_shiftfsm_state.RX_CLK_LOAD rx_shiftfsm_state.IDLE 
+rx_shiftfsm_state.IDLE 0 0 0 0 0 0 
+rx_shiftfsm_state.RX_CLK_LOAD 0 0 0 0 1 1 
+rx_shiftfsm_state.RX_CLK_LOW 0 0 0 1 0 1 
+rx_shiftfsm_state.RX_CLK_HIGH 0 0 1 0 0 1 
+rx_shiftfsm_state.RX_HOLD 0 1 0 0 0 1 
+rx_shiftfsm_state.RX_DONE 1 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|altera_avalon_i2c:i2c_ext_1|altera_avalon_i2c_mstfsm:u_mstfsm|mst_fsm_state
+Name mst_fsm_state.PRE_IDLE mst_fsm_state.GEN_STOP mst_fsm_state.BUS_HOLD mst_fsm_state.GEN_RESTART_7BIT mst_fsm_state.GEN_7BIT_ADDR mst_fsm_state.RX_BYTE mst_fsm_state.TX_BYTE mst_fsm_state.POP_TX_FIFO mst_fsm_state.GEN_START mst_fsm_state.PRE_START mst_fsm_state.IDLE 
+mst_fsm_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 
+mst_fsm_state.PRE_START 0 0 0 0 0 0 0 0 0 1 1 
+mst_fsm_state.GEN_START 0 0 0 0 0 0 0 0 1 0 1 
+mst_fsm_state.POP_TX_FIFO 0 0 0 0 0 0 0 1 0 0 1 
+mst_fsm_state.TX_BYTE 0 0 0 0 0 0 1 0 0 0 1 
+mst_fsm_state.RX_BYTE 0 0 0 0 0 1 0 0 0 0 1 
+mst_fsm_state.GEN_7BIT_ADDR 0 0 0 0 1 0 0 0 0 0 1 
+mst_fsm_state.GEN_RESTART_7BIT 0 0 0 1 0 0 0 0 0 0 1 
+mst_fsm_state.BUS_HOLD 0 0 1 0 0 0 0 0 0 0 1 
+mst_fsm_state.GEN_STOP 0 1 0 0 0 0 0 0 0 0 1 
+mst_fsm_state.PRE_IDLE 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:i2c_ext_csr_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:i2c_int_csr_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[6].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[5].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_6_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_5_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[35].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[13].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[2].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_f2sdram_only_master:hps_only_master|altera_avalon_st_jtag_interface:jtag_phy_embedded_in_jtag_master|altera_jtag_dc_streaming:normal.jtag_dc_streaming|altera_jtag_streaming:jtag_streaming|read_state
+Name read_state.ST_HEADER read_state.ST_READ_DATA read_state.ST_PADDED 
+read_state.ST_HEADER 0 0 0 
+read_state.ST_PADDED 1 0 1 
+read_state.ST_READ_DATA 1 1 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_f2sdram_only_master:hps_only_master|altera_avalon_st_jtag_interface:jtag_phy_embedded_in_jtag_master|altera_jtag_dc_streaming:normal.jtag_dc_streaming|altera_jtag_streaming:jtag_streaming|write_state
+Name write_state.ST_WRITE_DATA write_state.ST_HEADER_2 write_state.ST_HEADER_1 write_state.ST_BYPASS 
+write_state.ST_BYPASS 0 0 0 0 
+write_state.ST_HEADER_1 0 0 1 1 
+write_state.ST_HEADER_2 0 1 0 1 
+write_state.ST_WRITE_DATA 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_f2sdram_only_master:f2sdram_only_master|altera_avalon_st_jtag_interface:jtag_phy_embedded_in_jtag_master|altera_jtag_dc_streaming:normal.jtag_dc_streaming|altera_jtag_streaming:jtag_streaming|read_state
+Name read_state.ST_HEADER read_state.ST_READ_DATA read_state.ST_PADDED 
+read_state.ST_HEADER 0 0 0 
+read_state.ST_PADDED 1 0 1 
+read_state.ST_READ_DATA 1 1 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_f2sdram_only_master:f2sdram_only_master|altera_avalon_st_jtag_interface:jtag_phy_embedded_in_jtag_master|altera_jtag_dc_streaming:normal.jtag_dc_streaming|altera_jtag_streaming:jtag_streaming|write_state
+Name write_state.ST_WRITE_DATA write_state.ST_HEADER_2 write_state.ST_HEADER_1 write_state.ST_BYPASS 
+write_state.ST_BYPASS 0 0 0 0 
+write_state.ST_HEADER_1 0 0 1 1 
+write_state.ST_HEADER_2 0 1 0 1 
+write_state.ST_WRITE_DATA 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:ctrl_out_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:i2c_ext_1_csr_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[9].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_9_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_f2sdram_only_master:f2sdram_only_master|altera_avalon_packets_to_master:transacto|packets_to_master:p2m|state
+Name state.READ_SEND_WAIT state.READ_SEND_ISSUE state.READ_DATA_WAIT state.READ_CMD_WAIT state.READ_ASSERT state.RETURN_PACKET state.WRITE_WAIT state.GET_WRITE_DATA state.GET_ADDR4 state.GET_ADDR3 state.GET_ADDR2 state.GET_ADDR1 state.GET_SIZE2 state.GET_SIZE1 state.GET_EXTRA state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.GET_EXTRA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.GET_SIZE1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.GET_SIZE2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.GET_ADDR1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.GET_ADDR2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.GET_ADDR3 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.GET_ADDR4 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.GET_WRITE_DATA 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.WRITE_WAIT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.RETURN_PACKET 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.READ_ASSERT 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_CMD_WAIT 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_DATA_WAIT 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_ISSUE 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_WAIT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[34].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[33].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[0].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_f2sdram_only_master:fpga_only_master|altera_avalon_st_jtag_interface:jtag_phy_embedded_in_jtag_master|altera_jtag_dc_streaming:normal.jtag_dc_streaming|altera_jtag_streaming:jtag_streaming|read_state
+Name read_state.ST_HEADER read_state.ST_READ_DATA read_state.ST_PADDED 
+read_state.ST_HEADER 0 0 0 
+read_state.ST_PADDED 1 0 1 
+read_state.ST_READ_DATA 1 1 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_f2sdram_only_master:fpga_only_master|altera_avalon_st_jtag_interface:jtag_phy_embedded_in_jtag_master|altera_jtag_dc_streaming:normal.jtag_dc_streaming|altera_jtag_streaming:jtag_streaming|write_state
+Name write_state.ST_WRITE_DATA write_state.ST_HEADER_2 write_state.ST_HEADER_1 write_state.ST_BYPASS 
+write_state.ST_BYPASS 0 0 0 0 
+write_state.ST_HEADER_1 0 0 1 1 
+write_state.ST_HEADER_2 0 1 0 1 
+write_state.ST_WRITE_DATA 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_Crtl_CH4|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_Crtl_CH2|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_Crtl_CH1|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[1].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[20].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_20_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_1_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_Crtl_CH3|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_ch3_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_ch2_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[29].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_29_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_2_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[10].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_10_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_ch4_pio_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[4].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[3].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_4_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_3_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_f2sdram_only_master:hps_only_master|altera_avalon_packets_to_master:transacto|packets_to_master:p2m|state
+Name state.READ_SEND_WAIT state.READ_SEND_ISSUE state.READ_DATA_WAIT state.READ_CMD_WAIT state.READ_ASSERT state.RETURN_PACKET state.WRITE_WAIT state.GET_WRITE_DATA state.GET_ADDR4 state.GET_ADDR3 state.GET_ADDR2 state.GET_ADDR1 state.GET_SIZE2 state.GET_SIZE1 state.GET_EXTRA state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.GET_EXTRA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.GET_SIZE1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.GET_SIZE2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.GET_ADDR1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.GET_ADDR2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.GET_ADDR3 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.GET_ADDR4 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.GET_WRITE_DATA 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.WRITE_WAIT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.RETURN_PACKET 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.READ_ASSERT 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_CMD_WAIT 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_DATA_WAIT 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_ISSUE 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_WAIT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[28].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[27].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_28_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_27_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[22].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[21].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_22_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_21_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[19].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[18].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_19_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_18_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[12].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[11].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_12_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_11_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[8].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[7].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_8_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_7_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[31].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[30].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_30_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_31_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[24].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[23].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_24_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_23_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[26].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[25].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_26_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_25_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[17].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[16].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_17_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_16_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[15].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|IGBT_Pulse_Controller:IGBT_Pulse_36Channel[14].IGBT_Pulse_Control|State
+Name State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 
+State.S1 0 0 1 1 
+State.S2 0 1 0 1 
+State.S3 1 0 0 1 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_15_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |DE10_NANO_SoC_GHRD|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pulse_length_pio_14_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 

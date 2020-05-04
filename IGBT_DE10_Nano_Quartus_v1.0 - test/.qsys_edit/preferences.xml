@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="271" />
+   <irq preferredWidth="63" />
+   <export preferredWidth="382" />
+   <description preferredWidth="275" />
+   <name preferredWidth="247" />
+   <inputclock preferredWidth="251" />
+  </columns>
+ </systemtable>
+ <library expandedCategories="Library,Project" />
+ <window width="1920" height="989" x="-5" y="0" />
+ <generation block_symbol_file="0" />
+</preferences>
