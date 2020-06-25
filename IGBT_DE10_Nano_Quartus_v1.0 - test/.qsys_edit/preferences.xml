@@ -7,11 +7,13 @@
    <irq preferredWidth="63" />
    <export preferredWidth="382" />
    <description preferredWidth="275" />
-   <name preferredWidth="247" />
+   <name preferredWidth="513" />
    <inputclock preferredWidth="251" />
+   <baseaddress preferredWidth="255" />
+   <endaddress preferredWidth="286" />
   </columns>
  </systemtable>
  <library expandedCategories="Library,Project" />
- <window width="1920" height="989" x="-5" y="0" />
+ <window width="3872" height="2092" x="-16" y="-16" />
  <generation block_symbol_file="0" />
 </preferences>
